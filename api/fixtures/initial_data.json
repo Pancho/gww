@@ -24,5 +24,33 @@
 			"email": "danijel.pancic@gmail.com",
 			"date_joined": "2010-01-23 00:00:00"
 		}
+	},
+	{
+		"pk": 1,
+		"model": "api.testbundle",
+		"fields": {
+			"created": "2012-05-15 00:00:00",
+			"ends": "2012-05-30 00:00:00"
+		}
+	},
+	{
+		"pk": 1,
+		"model": "api.testpage",
+		"fields": {
+			"name": "Solucija, bundle 1",
+			"slug": "bundle-1-solucija-1",
+			"template_path": "tests/solucija-1/index.html",
+			"bundle": 1
+		}
+	},
+	{
+		"pk": 2,
+		"model": "api.testpage",
+		"fields": {
+			"name": "Solucija 2, bundle 1",
+			"slug": "bundle-1-solucija-2",
+			"template_path": "tests/solucija-2/index.html",
+			"bundle": 1
+		}
 	}
 ]

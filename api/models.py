@@ -3,6 +3,7 @@ from api.modelfields import JSONField
 
 
 DATA_DUMP_TYPES = (
+	(-1, 'UNKNOWN'),
 	(0, 'DOM_EVENT'),
 	(1, 'LAYOUT'),
 	(2, 'RECALC_STYLE'),
@@ -26,38 +27,46 @@ DATA_DUMP_TYPES = (
 )
 
 
+class TestBundle(models.Model):
+	created = models.DateTimeField()
+	ends = models.DateTimeField()
+
+
+
 class TestPage(models.Model):
 	name = models.TextField()
 	slug = models.TextField()
 	template_path = models.TextField()
+	bundle = models.ForeignKey(to=TestBundle, blank=False, null=False)
 
 
 	def __unicode__(self):
-		return '%s, available on "%s" with template %s; %d tests performed so far' % (self.name, self.slug, self.template_path, self.datadump_set.count())
+		return '%s, available on "%s" with template %s; %d tests performed so far' % (self.name, self.slug, self.template_path, self.datadump_set.filter(parent=None).count())
 
 
 class DataDump(models.Model):
-	type = models.IntegerField()
+	test_uuid = models.CharField(max_length=36)
+	timestamp = models.DateTimeField(auto_now_add=True)
+	type = models.IntegerField(choices=DATA_DUMP_TYPES)
 	data = JSONField(default='{}')
 	custom = JSONField(default='{}')
-	duration = models.FloatField() # Not always <> 0, some events don't return duration.
-	parent = models.ForeignKey('self')
+	duration = models.FloatField(null=True, blank=True) # Not always <> 0, some events don't return duration.
+	parent = models.ForeignKey('self', null=True, blank=True)
 	test_page = models.ForeignKey(to=TestPage, null=True, blank=True) # If it's a child, then this is null, as it's connected to the test page through it's top parent
 
 
 	def get_test_page(self):
-		# Return the TestPage here
-		return None
+		return self.test_page
 
 
 	def get_immediate_children(self):
 		#return immediate children of this dump
-		return None
+		return self.datadump_set.all()
 
 
 	def resolve_type(self):
-		return ''
+		return dict(DATA_DUMP_TYPES).get(self.type, self.type)
 
 
 	def __unicode__(self):
-		return '%s for %s' % (self.get_test_page(), self.resolve_type())
+		return '%s for %s' % (self.get_test_page().name, self.resolve_type())

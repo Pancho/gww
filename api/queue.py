@@ -1,4 +1,7 @@
+import json
 import pika
+import pprint
+from api.models import DataDump, TestPage
 
 
 def post_to_provider(json):
@@ -18,5 +21,32 @@ def consume_from_queue():
 	channel.start_consuming()
 
 
-def data_dump_callback(ch, method, properties, body):
-	print body
+def data_dump_callback(channel, method, properties, body):
+	body_dict = json.loads(body)
+
+	try:
+		data = body_dict.get('data', [])
+		header = body_dict.get('header', {})
+		test_page = TestPage.objects.get(id=header.get('page', -1))
+
+		save_data_dump(data, header, None, test_page)
+
+		channel.basic_ack(method.delivery_tag) # Acknowledge message, delete from queue (pack this into "transaction"
+	except Exception, e:
+		print e
+
+def save_data_dump(children, header, parent, test_page):
+	for data in children:
+		data_dump = DataDump()
+		data_dump.test_uuid = header.get('test_uuid', '')
+		data_dump.type = data.get('type', -1)
+		data_dump.data = json.dumps(data.get('data', {}))
+		data_dump.custom = json.dumps(header)
+		data_dump.duration = data.get('duration', 0)
+		data_dump.test_page = test_page
+		if parent is not None:
+			data_dump.parent = parent
+		data_dump.save()
+
+		if len(data.get('children', [])):
+			save_data_dump(data.get('children', []), header, data_dump, test_page)

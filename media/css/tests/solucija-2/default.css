@@ -1,0 +1,25 @@
+*{margin:0;padding:0}:focus,:active {outline:0}img{border: 0}
+body { font: 13px Arial, Tahoma, Verdana, sans-serif; background: url(/media/img/tests/bg.gif) repeat-x; color: #808080; }
+a { text-decoration: none; color: #B10D0D; }
+p { clear: both; line-height: 21px; margin: 0 0 15px; }
+#main { width: 970px; margin: 0 auto; }
+#topbar {padding: 6px 20px ; font-size: 17px; margin: 0;}
+#project { float: left; background: url(/media/img/tests/redbg.gif) repeat-x; padding: 90px 30px 15px; margin: -33px 0 20px;}
+#menu { float: right; margin: 60px 20px 40; }
+#menu li { display: inline; font-size: 17px; }
+#menu li a { float: left; color: #808080; padding: 0 0 5px; margin: 0 0 0 50px; }
+#menu li a:hover, #menu li.current a { color: #000000; border-bottom: 1px solid #808080; }
+#center { background: url(/media/img/tests/monitor.gif) no-repeat right top; padding: 30px 350px 0 0; height: 220px; margin: 40px 0 0 0; }
+#center h1 { font-size: 33px; color: #000000; margin: 0 40px 20px 0; }
+#center p {font-size: 15px; font-weight: bold;}
+#footer { clear: both; font-size: 11px; }
+.line { clear: both; border-bottom: 1px solid #DDDDDD; margin: 0 0 20px 0; }
+.article { float: left; width: 295px; margin: 20px 40px 20px 0; }
+.right { margin-right: 0;}
+.stories { float: left; width: 590px; margin: 20px 40px 30px 0; }
+.movement { font-style: italic; float: left; width: 260px; margin: 20px 75px 30px 0; }
+h1 { font-size: 33px; font-weight: normal; }
+h1 a { color: #FFFFFF; font-size: 29px; }
+h2 { font-size: 20px; color: #000000; font-style: normal; font-weight: normal; margin: 0 0 15px;}
+h3 { font-size: 15px; background: #FFFFFF url(/media/img/tests/redbg.gif) repeat-x left bottom; padding: 6px 7px; color: #FFFFFF; font-weight: normal; margin: 0 0 15px; float: left; }
+h4 { float: left; background: #808080; padding: 6px 7px; color: #FFFFFF; font-weight: normal; margin: 0 0 15px;}
