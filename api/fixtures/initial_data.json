@@ -52,5 +52,25 @@
 			"template_path": "tests/solucija-2/index.html",
 			"bundle": 1
 		}
+	},
+	{
+		"pk": 3,
+		"model": "api.testpage",
+		"fields": {
+			"name": "Solucija 3, bundle 1",
+			"slug": "bundle-1-solucija-3",
+			"template_path": "tests/solucija-3/index.html",
+			"bundle": 1
+		}
+	},
+	{
+		"pk": 4,
+		"model": "api.testpage",
+		"fields": {
+			"name": "Solucija 4, bundle 1",
+			"slug": "bundle-1-solucija-4",
+			"template_path": "tests/solucija-4/index.html",
+			"bundle": 1
+		}
 	}
 ]

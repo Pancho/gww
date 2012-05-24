@@ -50,6 +50,8 @@ class DataDump(models.Model):
 	type = models.IntegerField(choices=DATA_DUMP_TYPES)
 	data = JSONField(default='{}')
 	custom = JSONField(default='{}')
+	user_agent = models.TextField()
+	platform = models.TextField()
 	duration = models.FloatField(null=True, blank=True) # Not always <> 0, some events don't return duration.
 	parent = models.ForeignKey('self', null=True, blank=True)
 	test_page = models.ForeignKey(to=TestPage, null=True, blank=True) # If it's a child, then this is null, as it's connected to the test page through it's top parent

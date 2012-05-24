@@ -13,7 +13,6 @@
 	</head>
 	<body>
 		<div id="content">
-			<p id="top">Duis rutrum dapibus diam. Sed turpis sem, suscipit et, ullamcorper vel, aliquam in, tellus.</p>
 			<div id="logo">
 				<h1><a href="../../pages/index.html">distinctive</a></h1>
 			</div>
@@ -75,6 +74,7 @@
 										bundle: 1,
 										page: 1,
 										platform: navigator.platform,
+										userAgent: navigator.userAgent,
 										test_uuid: '{{ test_uuid }}'
 									}, function () {
 										if (window.name && window.name.indexOf('_close') >= 0) {

@@ -12,6 +12,9 @@ def index(request):
 	# Just save into the provider
 	queue.post_to_provider(request.raw_post_data)
 
+	print dir(request)
+	print request.META
+
 	return HttpResponse(json.dumps({'status': 'ok'}))
 
 
@@ -19,7 +22,7 @@ def tests(request):
 	now_timestamp = datetime.now()
 	active_bundles = TestBundle.objects.filter(created__lt=now_timestamp).filter(ends__gt=now_timestamp)
 
-	site = Site.objects.get_current();
+	site = Site.objects.get_current()
 
 	result = {
 		'meta': {

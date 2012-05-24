@@ -76,7 +76,7 @@
 					} else {
 						setTimeout(function () {
 							speedtracer.stopMonitoring(function () {
-								speedtracer.sendDump('http://localhost:8080/api', {
+								speedtracer.sendDump('http://{{ site }}{% url api.index %}', {
 									bundle: 1,
 									page: 2,
 									platform: navigator.platform,

@@ -1,0 +1,51 @@
+/* CSS RESET from http://meyerweb.com/eric/thoughts/2007/05/01/reset-reloaded/ */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {margin:0;padding:0;border:0;outline:0;font-weight:inherit;font-style:inherit;font-family:inherit;font-size:100%;vertical-align:baseline;}
+/* remember to define focus styles! */
+:focus {outline:0;}
+body {line-height:1;color:#000;background:#fff;}
+ol, ul {list-style:none;}
+/* tables still need 'cellspacing="0"' in the markup */
+table {border-collapse:separate;border-spacing:0;}
+caption, th, td {text-align:left;font-weight:normal;}
+blockquote:before, blockquote:after,
+q:before, q:after {content:"";}
+blockquote, q {quotes:"" "";}
+strong{font-weight:bold;}
+
+body {font-size:62.5%;font-family:Arial, Tahoma, Verdana, sans-serif;color:#777;border-top:2.8em solid #000;}
+
+
+#head {width:97em;margin:0 auto;padding:0 0 2em 0;border-bottom:.1em solid #ddd;height:7em;}
+#head h1 {background:transparent url("/media/img/tests/redbg.gif") left bottom repeat-x;padding:6.3em 2.5em 1.5em 2.5em;float:left;margin:-2.9em 0 0 0;}
+#head h1 a {font-size:2.9em;text-transform:lowercase;color:#fff;text-decoration:none;}
+#head ol {display:inline-block;float:right;margin:3em 2em 4em 2em;}
+#head ol li {display:inline-block;}
+#head ol li a {color:gray;text-decoration:none;color:gray;font-size:1.7em;margin:0 0 0 3.235294em;padding:0 0 0.714285em 0;}
+#head ol li a:hover, #head ol li a.selected {color:#000;border-bottom:.1em solid gray;}
+
+
+#content {width:97em;margin:0 auto;}
+
+#content #key {padding:3em 35em 0 0;margin:4em 0 3.5em 0;background:transparent url("/media/img/tests/monitor.gif") top right no-repeat;height:21em;border-bottom:.1em solid #ddd;}
+#content #key h2 {font-size:3.3em;margin:0 0 .606060em;color:#000;line-height:normal;}
+#content #key p {font-weight:bold;font-size:1.5em;line-height:1.533333;}
+
+#content #bits {margin:0 0 2em 0;border-bottom:.1em solid #ddd;}
+#content #bits li {width:29.4em;margin:0 4em 2em 0;display:inline-block;vertical-align:top;}
+#content #bits li.last {margin:0 0 2em 0;}
+#content #bits li h3 {display:inline-block;font-size:1.5em;padding:.4em .466666em;background-color:#B00A0A;color:#fff;margin:0 0 1em 0;}
+#content #bits li p {font-size:1.3em;line-height:1.615384;}
+
+#content #bytes {margin:4.5em 0 2em 0;padding:0 0 2em 0;border-bottom:.1em solid #ddd;}
+#content #bytes div {display:inline-block;vertical-align:top;width:23em;margin:0 11em 0 0;}
+#content #bytes div h3 {font-size:2em;line-height:1.2;margin:0 0 .75em 0;color:#555;}
+#content #bytes div p {font-size:1.3em;line-height:1.615384;font-style:italic;}
+#content #bytes ol {display:inline-block;width:62.7em;margin:0;}
+#content #bytes ol li {margin:0 0 2.5em 0;}
+#content #bytes ol li h4  {font-size:1.1em;padding:.545454em .636363em;margin:0 0 .733333em 0;color:#fff;background:gray;display:inline-block;}
+#content #bytes ol li p {font-size:1.3em;line-height:1.615384;}
+
+
+#footer {width:97em;margin:2em auto 1.5em auto;}
+#footer p {font-size:1.1em;}
+#footer p a {color:#B20F0F;text-decoration:none;}
