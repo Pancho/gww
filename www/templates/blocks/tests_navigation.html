@@ -1,0 +1,6 @@
+<div id="gww-test-navigation" class="gww-side-navigation">
+				<h3>Bundles</h3>
+				<ul>{% for bundle in bundles %}
+					<li><a{% if selected_bundle.id == bundle.id %} class="selected"{% endif %} href="{% url www.view_bundle bundle.id %}">{{ bundle.title }}</a></li>{% endfor %}
+				</ul>
+			</div>

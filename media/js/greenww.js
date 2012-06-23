@@ -6,38 +6,70 @@ var GWW = (function () {
 			}
 		},
 		frontPerformTests: function () {
-			$('#gww-main-start').off().on('click', function (ev) {
-				var startButton = $(this);
-				$.get('/api/tests', {}, function (data) {
-					var win = null;
-					var i = 0, j = data.pages.length, windows = [];
-					for (; i < j; i += 1) {
-						try {
-							win = window.open('http://' + data.meta.domain + '/test/' + data.pages[i].slug, 'test_' + data.pages[i].page, 'height=1000, width=1500, menubar=no, toolbar=no, location=no, status=no')
-							$(win).trigger('blur');
-							windows.push(win);
 
-							startButton.text('Stop tests').off().on('click', function (event) {
-								var k = 0, l = windows.length;
-								startButton.text('Start Measuring');
-								event.preventDefault();
-								for (; k < l; k += 1) {
-									windows[k].name = windows[k].name + '_close';
-								}
-								r.frontPerformTests();
-							})
-						} catch (e) {
-							console.log(e);
-						}
-					}
-				}, 'json');
-			});
 		},
 		closeInertWindows: function () {
 			$('#gww-close-test-window').on('click', function (ev) {
 				ev.preventDefault();
 				window.close();
 			});
+		},
+		markUser: function () {
+			if (u.isOnChrome()) {
+				if (localStorage) {
+					if (!localStorage.getItem('gww-mark-browser')) {
+						localStorage.setItem('gww-mark-browser', Math.uuid(25));
+					}
+				}
+			}
+		},
+		displayBundleCharts: function () {
+			var placeholder = $('.gww-bundle-graph'), bundleId = '', browserId = localStorage.getItem('gww-mark-browser');
+
+			if (placeholder.length) {
+				bundleId = placeholder.attr('id').replace(/gww-bundle-results-/, ''); // Only here we really know there's a chance that the id exists
+
+				if (bundleId) {
+					if (browserId) {
+						$.get('/api/results/bundle/' + bundleId + '/' + browserId + '/', {}, function (resultsData) {
+							google.setOnLoadCallback(drawChart);
+							function drawChart () {
+								var i = 0, j = resultsData.charts.length, charts = [resultsData.columns];
+
+								for (; i < j; i += 1) {
+									charts.push(resultsData.charts[i]);
+								}
+								var data = google.visualization.arrayToDataTable(charts);
+
+								var options = {
+									title: resultsData.title,
+									height: 600,
+									hAxis: {title: 'Tests', titleTextStyle: {color: 'red'}}
+								};
+
+								var chart = new google.visualization.ColumnChart(placeholder.get(0));
+								chart.draw(data, options);
+							}
+						});
+					} else {
+						placeholder.before($('<p class="gww-error">Error drawing chart. Could not identify your browser or you haven\'t performed any tests yet.</p>'));
+					}
+				} else {
+					placeholder.before($('<p class="gww-error">Error drawing chart. Could not find bundle in database.</p>'));
+				}
+			}
+		},
+		displayTextLightbox: function () {
+			$('.gww-text-lgihtbox').on('click', function (ev) {
+				ev.preventDefault();
+			});
+		},
+		fixEmails: function () {
+			$('.gww-email').each(function (i, elm) {
+				elm = $(elm);
+				elm.attr('href', elm.attr('href').replace(' | a t | ', '@'));
+				elm.text(elm.text().replace(' | a t | ', '@'));
+			})
 		}
 	}, u = {
 		isOnChrome: function () {
@@ -47,6 +79,10 @@ var GWW = (function () {
 			r.frontCheckChrome();
 			r.frontPerformTests();
 			r.closeInertWindows();
+			r.markUser();
+			r.displayBundleCharts();
+			r.displayTextLightbox();
+			r.fixEmails();
 		}
 	};
 	return u.initialize();

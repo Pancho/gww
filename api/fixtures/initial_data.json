@@ -30,7 +30,10 @@
 		"model": "api.testbundle",
 		"fields": {
 			"created": "2012-05-15 00:00:00",
-			"ends": "2012-05-30 00:00:00"
+			"title": "Test Bundle",
+			"description": "Testing the HTML parse times, style recalculations, paint times and layout placing times of different implementations of a same design. Great thanks to Solucija for offering their great design for projects like this.",
+			"ends": "2013-05-30 00:00:00",
+			"aggregate_dumps": "1,2,3,4"
 		}
 	},
 	{
@@ -38,9 +41,15 @@
 		"model": "api.testpage",
 		"fields": {
 			"name": "Solucija, bundle 1",
-			"slug": "bundle-1-solucija-1",
+			"slug": "solucija-1",
+			"description": "Original implementation of the page as found on <a target=\"external\" href=\"http://www.solucija.com/template/distinctive\" title=\"Distinctive\">http://www.solucija.com/template/distinctive</a>.",
+			"screenshot": "/media/img/tests/screenshots/solucija-distincive.png",
+			"screenshot_width": 150,
+			"screenshot_height": 244,
 			"template_path": "tests/solucija-1/index.html",
-			"bundle": 1
+			"bundle": 1,
+			"order": 0,
+			"next_page": 2
 		}
 	},
 	{
@@ -48,9 +57,15 @@
 		"model": "api.testpage",
 		"fields": {
 			"name": "Solucija 2, bundle 1",
-			"slug": "bundle-1-solucija-2",
+			"slug": "solucija-2",
+			"description": "Implementation provided by a friend. Differs very little from the original.",
+			"screenshot": "/media/img/tests/screenshots/solucija-distincive.png",
+			"screenshot_width": 150,
+			"screenshot_height": 244,
 			"template_path": "tests/solucija-2/index.html",
-			"bundle": 1
+			"bundle": 1,
+			"order": 1,
+			"next_page": 3
 		}
 	},
 	{
@@ -58,9 +73,15 @@
 		"model": "api.testpage",
 		"fields": {
 			"name": "Solucija 3, bundle 1",
-			"slug": "bundle-1-solucija-3",
+			"slug": "solucija-3",
+			"description": "My own implementation, using tags that seemd appropriate for the layout and styling with a CSS reset.",
+			"screenshot": "/media/img/tests/screenshots/solucija-distincive.png",
+			"screenshot_width": 150,
+			"screenshot_height": 244,
 			"template_path": "tests/solucija-3/index.html",
-			"bundle": 1
+			"bundle": 1,
+			"order": 2,
+			"next_page": 4
 		}
 	},
 	{
@@ -68,9 +89,41 @@
 		"model": "api.testpage",
 		"fields": {
 			"name": "Solucija 4, bundle 1",
-			"slug": "bundle-1-solucija-4",
+			"slug": "solucija-4",
+			"description": "Implementation identical to the \"Solucija 3, bundle 1\".",
+			"screenshot": "/media/img/tests/screenshots/solucija-distincive.png",
+			"screenshot_width": 150,
+			"screenshot_height": 244,
 			"template_path": "tests/solucija-4/index.html",
-			"bundle": 1
+			"bundle": 1,
+			"order": 3,
+			"next_page": 5
+		}
+	},
+	{
+		"pk": 5,
+		"model": "api.testpage",
+		"fields": {
+			"name": "Solucija 5, bundle 1",
+			"slug": "solucija-5",
+			"description": "Implementation identical to the \"Solucija 3, bundle 1\" except that some tags aren't closed (while still keeping the layout as untouched as possible).",
+			"screenshot": "/media/img/tests/screenshots/solucija-distincive.png",
+			"screenshot_width": 150,
+			"screenshot_height": 244,
+			"template_path": "tests/solucija-5/index.html",
+			"bundle": 1,
+			"order": 4,
+			"next_page": 1
+		}
+	},
+	{
+		"pk": 1,
+		"model": "api.article",
+		"fields": {
+			"title": "Quirks",
+			"slug": "quirks",
+			"abstract": "A list of known quirks I have to warn you about.",
+			"content": "<p>I don't want to scare anyone, but I have found the following quirks on my own and I have to warn you about them in advance.</p><ol><li>When you close the measurement tab, the main tab crashes - though it's annoying, there's nothing wrong with this. I have the suspect bugs for this on my kill list :)</li></ol><p>At this moment there's only one problem I've found, but feel free to tell me about any oddity you encounter via the email found in the footer of the page.</p>"
 		}
 	}
 ]

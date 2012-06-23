@@ -1,0 +1,20 @@
+<div class="gww-middle">
+				<h2>{{ selected_bundle.title }}</h2>
+				<p>{{ selected_bundle.description }}</p>
+				<h2>Tests in this bundle</h2>
+				<ul class="gww-test-list">{% for test in selected_bundle.get_ordered_test_pages %}
+					<li>
+						<img src="{{ test.screenshot }}" width="{{ test.screenshot_width }}" height="{{ test.screenshot_height }}" alt="{{ test.name }}" />
+						<div>
+							<h4>{{ test.name }}</h4>
+							<p>{{ test.description|safe }}</p>
+							<ol>
+								<li><a href="{% url www.view_test test.slug %}">View page in this tab</a></li>
+								<li><a target="view-test" href="{% url www.view_test test.slug %}">View page in a new tab</a></li>
+								<li><a target="view-test-source" href="view-source:{{ site }}{% url www.view_test test.slug %}">View page source (doesn't work in IE, Safari and Opera)</a></li>
+								<li><a target="view-test-css" href="/media/css/tests/{{ test.slug }}/default.css">View page CSS</a></li>
+							</ol>
+						</div>
+					</li>{% endfor %}
+				</ul>
+			</div>

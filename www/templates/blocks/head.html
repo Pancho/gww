@@ -1,13 +1,14 @@
 <div id="gww-head">
 			<div>
-				<h1><a href="/">GWW</a></h1>
+				<h1><a href="/">ProjectGWW</a></h1>
 			</div>
 		</div>
 		<div id="gww-navigation">
 			<ul>
-				<li><a class="selected" href="">Home</a></li>
-				{% comment %}<li><a href="">Tests</a></li>
-				<li><a href="">Documentation</a></li>
+				<li><a{% if selected == 'index' %} class="selected"{% endif %} href="{% url www.index %}">Home</a></li>
+				<li><a{% if selected == 'tests' %} class="selected"{% endif %} href="{% url www.view_tests %}">Tests</a></li>
+{#				<li><a{% if selected == 'results' %} class="selected"{% endif %} href="{% url www.results %}">Results</a></li>#}
+				{% comment %}<li><a href="">Documentation</a></li>
 				<li><a href="">Blog</a></li>{% endcomment %}
 			</ul>
 		</div>

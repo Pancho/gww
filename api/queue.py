@@ -1,6 +1,6 @@
 import json
+from math import sqrt
 import pika
-import pprint
 from api.models import DataDump, TestPage
 
 
@@ -26,6 +26,8 @@ def data_dump_callback(channel, method, properties, body):
 		body_dict = json.loads(body)
 	except Exception, e:
 		channel.basic_ack(method.delivery_tag) # Acknowledge message, since the body isn't a JSON... we should just forget it
+		print e
+		return
 
 	try:
 		data = body_dict.get('data', [])
@@ -43,7 +45,10 @@ def save_data_dump(children, header, parent, test_page):
 			data_dump = DataDump()
 			data_dump.user_agent = header.get('userAgent', 'unknown')
 			data_dump.platform = header.get('platform', 'unknown')
-			data_dump.test_uuid = header.get('test_uuid', 'useless')
+			data_dump.test_uuid = header.get('test_uuid', 'unknown')
+			data_dump.source = header.get('source', 'unknown')
+			data_dump.ip = header.get('ip', 'unknown')
+			data_dump.was_hidden = header.get('was_hidden', None)
 			data_dump.type = data.get('type', -1)
 			data_dump.data = json.dumps(data.get('data', {}))
 			data_dump.custom = json.dumps(header)
@@ -55,3 +60,7 @@ def save_data_dump(children, header, parent, test_page):
 
 			if len(data.get('children', [])):
 				save_data_dump(data.get('children', []), header, data_dump, test_page)
+
+
+if __name__ == '__main__':
+	consume_from_queue()

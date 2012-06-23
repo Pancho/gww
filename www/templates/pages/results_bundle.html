@@ -1,0 +1,6 @@
+{% extends 'skeleton.html' %}{% block main %}<div id="gww-tests">
+			{% include 'blocks/results_navigation.html' %}
+			{% include 'blocks/results_bundle.html' %}
+		</div>{% endblock main %}{% block extra_script %}
+		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+		<script type="text/javascript">google.load("visualization", "1", {packages: ["corechart"]});</script>{% endblock extra_script %}

@@ -1,0 +1,5 @@
+{% extends 'skeleton.html' %}{% block main %}<div id="gww-tests">
+			{% include 'blocks/tests_navigation.html' %}{% if selected_bundle %}
+			{% include 'blocks/tests_bundle.html' %}{% else %}
+			{% include 'blocks/tests_main.html' %}{% endif %}
+		</div>{% endblock main %}

@@ -30,20 +30,20 @@ body {font-size:62.5%;font-family:Arial, Tahoma, Verdana, sans-serif;color:#777;
 #content #key h2 {font-size:3.3em;margin:0 0 .606060em;color:#000;line-height:normal;}
 #content #key p {font-weight:bold;font-size:1.5em;line-height:1.533333;}
 
-#content #bits {margin:0 0 2em 0;border-bottom:.1em solid #ddd;}
-#content #bits li {width:29.4em;margin:0 4em 2em 0;display:inline-block;vertical-align:top;}
-#content #bits li.last {margin:0 0 2em 0;}
-#content #bits li h3 {display:inline-block;font-size:1.5em;padding:.4em .466666em;background-color:#B00A0A;color:#fff;margin:0 0 1em 0;}
-#content #bits li p {font-size:1.3em;line-height:1.615384;}
+#content .bits {margin:0 0 2em 0;border-bottom:.1em solid #ddd;}
+#content .bits li {width:29.4em;margin:0 4em 2em 0;display:inline-block;vertical-align:top;}
+#content .bits li.last {margin:0 0 2em 0;}
+#content .bits li h3 {display:inline-block;font-size:1.5em;padding:.4em .466666em;background-color:#B00A0A;color:#fff;margin:0 0 1em 0;}
+#content .bits li p {font-size:1.3em;line-height:1.615384;}
 
-#content #bytes {margin:4.5em 0 2em 0;padding:0 0 2em 0;border-bottom:.1em solid #ddd;}
-#content #bytes div {display:inline-block;vertical-align:top;width:23em;margin:0 11em 0 0;}
-#content #bytes div h3 {font-size:2em;line-height:1.2;margin:0 0 .75em 0;color:#555;}
-#content #bytes div p {font-size:1.3em;line-height:1.615384;font-style:italic;}
-#content #bytes ol {display:inline-block;width:62.7em;margin:0;}
-#content #bytes ol li {margin:0 0 2.5em 0;}
-#content #bytes ol li h4  {font-size:1.1em;padding:.545454em .636363em;margin:0 0 .733333em 0;color:#fff;background:gray;display:inline-block;}
-#content #bytes ol li p {font-size:1.3em;line-height:1.615384;}
+#content .bytes {margin:4.5em 0 2em 0;padding:0 0 2em 0;border-bottom:.1em solid #ddd;}
+#content .bytes div {display:inline-block;vertical-align:top;width:23em;margin:0 11em 0 0;}
+#content .bytes div h3 {font-size:2em;line-height:1.2;margin:0 0 .75em 0;color:#555;}
+#content .bytes div p {font-size:1.3em;line-height:1.615384;font-style:italic;}
+#content .bytes ol {display:inline-block;width:62.7em;margin:0;}
+#content .bytes ol li {margin:0 0 2.5em 0;}
+#content .bytes ol li h4  {font-size:1.1em;padding:.545454em .636363em;margin:0 0 .733333em 0;color:#fff;background:gray;display:inline-block;}
+#content .bytes ol li p {font-size:1.3em;line-height:1.615384;}
 
 
 #footer {width:97em;margin:2em auto 1.5em auto;}

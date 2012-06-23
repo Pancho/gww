@@ -1,0 +1,6 @@
+<div id="gww-test-navigation" class="gww-side-navigation">
+					<h3>Articles</h3>
+					<ul>{% for article in articles %}
+						<li><a{% if selected_article.id == article.id %} class="selected"{% endif %} href="{% url www.article article.slug %}">{{ article.title }}</a></li>{% endfor %}
+					</ul>
+				</div>
