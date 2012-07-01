@@ -26,7 +26,6 @@ def data_dump_callback(channel, method, properties, body):
 		body_dict = json.loads(body)
 	except Exception, e:
 		channel.basic_ack(method.delivery_tag) # Acknowledge message, since the body isn't a JSON... we should just forget it
-		print e
 		return
 
 	try:
