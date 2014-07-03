@@ -8,7 +8,6 @@
 		<meta name="keywords" content="key, words" />
 		<link rel="stylesheet" type="text/css" href="/media/css/tests/solucija-1/default.css" media="screen" />
 		<title>Distinctive - web development company</title>
-		<script language="javascript" type="text/javascript" src="chrome-extension://onnlpicjkjbhcimimoipdhmbgnfdcmhb/headless_api.js"></script>
 	</head>
 	<body>
 		<div id="content">
@@ -158,42 +157,30 @@
 		</div>{% if test_page %}
 		<script language="javascript" type="text/javascript">
 			(function () {
-				if (typeof speedtracer != 'undefined') {
-					if (window.location.href.indexOf('?monitoring') == -1) {
-						speedtracer.clearData();
-						speedtracer.startMonitoring({}, function () {
-							setTimeout(function () {
-								window.location.href += '?monitoring';
-							}, 1000);
-						});
-					} else {
-						setTimeout(function () {
-							speedtracer.stopMonitoring(function () {
-								speedtracer.sendDump('{{ site }}{% url api.index %}', {
-									bundle: 1,
-									page: 1,
-									platform: navigator.platform,
-									userAgent: navigator.userAgent,
-									source: localStorage.getItem('gww-mark-browser'),
-									ip: '{{ ip }}',
-									was_hidden: document.webkitHidden || null,
-									test_uuid: '{{ test_uuid }}'
-								}, function () {
-									if (window.name && window.name.indexOf('_close') >= 0) {
-										speedtracer.clearData();
-										setTimeout(function () {
-											window.close();
-										}, 1000);
-									} else {
-										window.location.href = '{{ site }}{% url www.test next %}';
-									}
-								});
-							});
-						}, 4000);
-					}
-				} else {
-					window.location.href = '{{ site }}{% url www.speed_tracer_not_found %}';
+				if (!window.performance || window.name.indexOf('_close') > 0) {
+					window.close(); // Maybe redirect to somewhere where I explain why this happened.
 				}
+				setTimeout(function () {
+					var img = new Image(),
+						result = {
+							start: window.performance.timing.domLoading,
+							end: window.performance.timing.domComplete,
+							performance: window.performance,
+							bundle: 1,
+							page: 1,
+							platform: navigator.platform,
+							source: localStorage.getItem('gww-mark-browser'),
+							ip: '{{ ip }}',
+							was_hidden: document.hidden,
+							test_uuid: '{{ test_uuid }}'
+						};
+
+					img.src = '{{ site }}{% url 'api.index' %}?blob=' + JSON.stringify(result);
+
+					setTimeout(function () {
+						window.location.href = '{{ site }}{% url 'www.test' next %}';
+					}, 100); // If we don't succeed in sending in .1 second, fail completely. Don't degrade for a piece of data - quantity over quality
+				}, 4000); // Delay for 5 seconds
 			})();
 		</script>{% endif %}
 	</body>

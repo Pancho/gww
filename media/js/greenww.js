@@ -1,13 +1,5 @@
 var GWW = (function () {
 	var r = {
-		frontCheckChrome: function () {
-			if (!u.isOnChrome()) {
-				$('#gww-main-speedtracer ol').find('li').remove().end().append('<li><h3>You need to <strong>open</strong> or install Google Chrome and open this page in that browser.</h3><a class="button" href="http://www.google.com/chrome">Install Google Chrome</a></li>');
-			}
-		},
-		frontPerformTests: function () {
-
-		},
 		closeInertWindows: function () {
 			$('#gww-close-test-window').on('click', function (ev) {
 				ev.preventDefault();
@@ -15,11 +7,9 @@ var GWW = (function () {
 			});
 		},
 		markUser: function () {
-			if (u.isOnChrome()) {
-				if (localStorage) {
-					if (!localStorage.getItem('gww-mark-browser')) {
-						localStorage.setItem('gww-mark-browser', Math.uuid(25));
-					}
+			if (localStorage) {
+				if (!localStorage.getItem('gww-mark-browser')) {
+					localStorage.setItem('gww-mark-browser', Math.uuid(25));
 				}
 			}
 		},
@@ -32,7 +22,7 @@ var GWW = (function () {
 				if (bundleId) {
 					if (browserId) {
 						$.get('/api/results/bundle/' + bundleId + '/' + browserId + '/', {}, function (resultsData) {
-							google.setOnLoadCallback(drawChart);
+							drawChart();
 							function drawChart () {
 								var i = 0, j = resultsData.charts.length, charts = [resultsData.columns];
 
@@ -43,7 +33,9 @@ var GWW = (function () {
 
 								var options = {
 									title: resultsData.title,
+									width: 740,
 									height: 600,
+									chartArea: {'width': '70%', 'height': '60%'},
 									hAxis: {title: 'Tests', titleTextStyle: {color: 'red'}}
 								};
 
@@ -72,12 +64,7 @@ var GWW = (function () {
 			})
 		}
 	}, u = {
-		isOnChrome: function () {
-			return navigator.userAgent.indexOf('Chrome/') > -1;
-		},
 		initialize: function () {
-			r.frontCheckChrome();
-			r.frontPerformTests();
 			r.closeInertWindows();
 			r.markUser();
 			r.displayBundleCharts();

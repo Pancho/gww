@@ -3,7 +3,7 @@
 		"pk": 1,
 		"model": "sites.site",
 		"fields": {
-			"domain": "localhost:8080",
+			"domain": "localgww:8083",
 			"name": "greenww.com"
 		}
 	},
@@ -120,10 +120,10 @@
 		"pk": 1,
 		"model": "api.article",
 		"fields": {
-			"title": "Quirks",
-			"slug": "quirks",
-			"abstract": "A list of known quirks I have to warn you about.",
-			"content": "<p>I don't want to scare anyone, but I have found the following quirks on my own and I have to warn you about them in advance.</p><ol><li>When you close the measurement tab, the main tab crashes - though it's annoying, there's nothing wrong with this. I have the suspect bugs for this on my kill list :)</li></ol><p>At this moment there's only one problem I've found, but feel free to tell me about any oddity you encounter via the email found in the footer of the page.</p>"
+			"title": "Performace object",
+			"slug": "performace-object",
+			"abstract": "About Performance Object",
+			"content": "<p>Performance object is a W3C recommendation implemented already in all modern browsers. Which means that to perform tests, you will need one of these browsers: Chrome, Safari, Firefox or IE 11 (I haven't tested with earlier versions).</p>"
 		}
 	}
 ]

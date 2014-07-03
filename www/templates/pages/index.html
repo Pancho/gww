@@ -3,28 +3,20 @@
 				<h2>ProjectGWW</h2>
 				<p>Volunteer computing of WWW stats</p>
 			</div>
-			<div id="gww-main-speedtracer">
+			<div>
 				<ol>
 					<li>
-						<h3>You can start by reading more on the project <a target="gww-article" href="{% url www.article 'quirks' %}">here</a> or if you know everything already, continue with the step 2.</h3>
-					</li>
-					<li>
-						<h3>All you have to do is download this extension</h3>
-						<a class="button" id="gww-get-speedtracer" href="/media/files/speedtracerheadless.crx">Install SpeedTracer</a>
+						<h3>You can start by reading more on the project <a target="gww-article" href="{% url 'www.article' %}">here</a> or if you know everything already, continue with the step 2.</h3>
 					</li>
 					<li>
 						<h3>Open a new tab by clicking on the button below and leave it open while it reloads the pages</h3>
-						<a class="button" id="gww-main-start" href="{% url www.test first_test_page_slug %}" target="gww-test-window">Start Measuring</a>
+						<a class="button" id="gww-main-start" href="{% url 'www.test' first_test_page_slug %}" target="gww-test-window">Start Measuring</a>
 					</li>
 				</ol>
 			</div>
 		</div>
 		<div id="gww-notes">
 			<ul>
-				<li>
-					<h3>What is Speed Tracer?</h3>
-					<p>Speed Tracer is an extension for Chrome web browser provided by Google that helps measure the inner operations performed by the browser. Find out more about it <a href="">here</a>.</p>
-				</li>
 				<li>
 					<h3>Can I see the results?</h3>
 					<p>You will able to see the results as soon as there are enough of them. Besides the aggregates, you will only be able to identify your own results.</p>

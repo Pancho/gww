@@ -6,7 +6,6 @@ urlpatterns = patterns('www.views',
 
 	# Test pages
 	url(r'^test/(?P<slug>[\-\w]+)$', 'test', name='www.test'),
-	url(r'^speed-tracer-not-found$', 'speed_tracer_not_found', name='www.speed_tracer_not_found'),
     # Test pages
 	url(r'^view-tests$', 'view_tests', name='www.view_tests'),
 	url(r'^view-tests/bundle/(?P<bundle_id>\d+)$', 'view_tests', name='www.view_bundle'),
@@ -16,8 +15,6 @@ urlpatterns = patterns('www.views',
     url(r'^results/bundle/(?P<bundle_id>\d+)$', 'results_bundle', name='www.results_bundle'),
     url(r'^results/test/(?P<test_slug>[\-\w]+)$', 'results_test', name='www.results_test'),
     # Article
+    url(r'^article/$', 'article', name='www.article'),
     url(r'^article/(?P<article_slug>[\-\w]+)$', 'article', name='www.article'),
-
-    #Test test page :)
-	url(r'^example$', 'example', name='www.example'),
 )

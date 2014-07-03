@@ -9,9 +9,9 @@
 							<h4>{{ test.name }}</h4>
 							<p>{{ test.description|safe }}</p>
 							<ol>
-								<li><a href="{% url www.view_test test.slug %}">View page in this tab</a></li>
-								<li><a target="view-test" href="{% url www.view_test test.slug %}">View page in a new tab</a></li>
-								<li><a target="view-test-source" href="view-source:{{ site }}{% url www.view_test test.slug %}">View page source (doesn't work in IE, Safari and Opera)</a></li>
+								<li><a href="{% url 'www.view_test' test.slug %}">View page in this tab</a></li>
+								<li><a target="view-test" href="{% url 'www.view_test' test.slug %}">View page in a new tab</a></li>
+								<li><a target="view-test-source" href="view-source:{{ site }}{% url 'www.view_test' test.slug %}">View page source (doesn't work in IE, Safari and Opera)</a></li>
 								<li><a target="view-test-css" href="/media/css/tests/{{ test.slug }}/default.css">View page CSS</a></li>
 							</ol>
 						</div>

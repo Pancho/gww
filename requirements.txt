@@ -1,0 +1,9 @@
+# *****************************************************************************************
+# ** Install this with "pip install -r requirements.txt" once you have virtualenv set up **
+# *****************************************************************************************
+# Apparent suspect for awesome web apps
+django==1.6.5
+# flup is needed for the cgi
+#flup
+#MySQL connector
+#MySQL-python

@@ -40,7 +40,7 @@ body{font-size:62.5%;font-family:Arial, sans-serif;background:transparent url('/
 
 #gww-notes {width:96em;margin:4em auto;}
 #gww-notes ul {letter-spacing:-4px;}
-#gww-notes ul li {width:33.333333%;display:inline-block;letter-spacing:normal;word-spacing:normal;vertical-align:top;}
+#gww-notes ul li {width:50%;display:inline-block;letter-spacing:normal;word-spacing:normal;vertical-align:top;}
 #gww-notes ul li h3 {font-size:2em;margin:0 0 .5em 0;color:#282828;text-transform:uppercase;}
 #gww-notes ul li p {font-size:1.5em;padding:0 1.666666em 0 0;line-height:1.333333;color:#6D6D6D;}
 #gww-notes ul li p a {color:inherit;}

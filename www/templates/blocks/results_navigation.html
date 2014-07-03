@@ -1,10 +1,10 @@
 <div id="gww-test-navigation" class="gww-side-navigation">
 					<h3>Bundles</h3>
 					<ul>{% for bundle in bundles %}
-						<li><a{% if selected_bundle.id == bundle.id %} class="selected"{% endif %} href="{% url www.results_bundle bundle.id %}">{{ bundle.title }}</a></li>{% if selected_bundle.id == bundle.id %}
+						<li><a{% if selected_bundle.id == bundle.id %} class="selected"{% endif %} href="{% url 'www.results_bundle' bundle.id %}">{{ bundle.title }}</a></li>{% if selected_bundle.id == bundle.id %}
 						<li class="gww-navigation-inner">
 							<ul>{% for test in selected_bundle.get_ordered_test_pages %}
-								<li><a{% if selected_test.id == test.id %} class="selected"{% endif %} href="{% url www.results_test test.slug %}">{{ test.name }}</a></li>{% endfor %}
+								<li><a{% if selected_test.id == test.id %} class="selected"{% endif %} href="{% url 'www.results_test' test.slug %}">{{ test.name }}</a></li>{% endfor %}
 							</ul>
 						</li>{% endif %}{% endfor %}
 					</ul>

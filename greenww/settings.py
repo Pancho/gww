@@ -148,14 +148,15 @@ LOGGING = {
 
 #LOCAL SETTINGS
 
-CURRENT_SITE_DOMAIN = 'http://localhost:8080'
+CURRENT_SITE_DOMAIN = 'http://localgww.net:8083'
+ALLOWED_HOSTS = ['127.0.0.1', '0.0.0.0', 'localhost'] # For development
 
 DATABASES = {
 	'default': {
 		'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
 		'NAME': 'gww',                      # Or path to database file if using sqlite3.
 		'USER': 'root',                      # Not used with sqlite3.
-		'PASSWORD': 'zemanta',                  # Not used with sqlite3.
+		'PASSWORD': 'mysqlpassword',                  # Not used with sqlite3.
 		'HOST': 'localhost',                      # Set to empty string for localhost. Not used with sqlite3.
 		'PORT': '3306',                      # Set to empty string for default. Not used with sqlite3.
 	}
