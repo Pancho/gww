@@ -44,5 +44,8 @@ def mean_standard_dev(x):
 	mean /= float(n)
 	for a in x:
 		std += (a - mean) ** 2
-	std = sqrt(std / float(n - 1))
+	if n <= 1:
+		std = 0.0
+	else:
+		std = sqrt(std / float(n - 1))
 	return mean, std
